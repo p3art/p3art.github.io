@@ -1,0 +1,729 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>jackie-Python-course</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="217f1046-5fc6-803a-9397-e07f5d9f5d69" class="page sans"><header><h1 class="page-title" dir="auto">jackie-Python-course</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="31cf1046-5fc6-80b8-bcd5-e878bb67122e" class="">家齊老師Python課程</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-812e-8a7f-e172dfc3983e" class="">姓名 : 林家齊<br/>學歷 : 中正理工學院 造船工程系</p></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-81c5-866c-f0cb557eb8e8" class="">經歷</h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81b4-8bc7-fe5105c6882c" class="">高雄市中山高中 111.09.05~112.07.31 代理教師(資訊科技)<br/>高雄市中山高中 107.09 ~ 到現在        兼任教師(多元選修 Python雲端繪圖 4節/週)</p></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-8149-a1ab-f39a00a90005" class="">專長	</h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8172-9a48-d2ed2ced9f57" class="">replit web Python &amp; C++,  <br/>STEAM (Laser Cut &amp; 3D Printing)<br/>運算思維培養, 演算法, 科學繪圖, 數據可視化<br/>幾何圖樣繪製用python, 天文星圖繪製用Python(程式設計專題)<br/>Notion 資料庫管理</p></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-813b-8634-d7e26752fa32" class="">課後輔導免費課程</h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81ca-96c4-f1f24cb14071" class=""><mark class="highlight-blue">名稱 : Python 程式設計</mark><br/>教授對象 : 小五至國中<br/>授課時段 : 上課10次, 2.5小時/次, 08:30至11:00<br/>教學環境 : <br/>自備筆電, 網路, 瀏覽器及手機, 不需安裝任何程式<br/>須備妥一組電郵帳號<br/>所有教學內容皆存放雲端<br/>學員的學習內容亦存放雲端<br/>使用免費 replit 雲端運算平台, 編輯/執行程式<br/>使用免費 Notion 教育版, 繳交作業及存放學習成果</p></div><div style="display:contents" dir="auto"><p id="218f1046-5fc6-8057-894c-f70eda47f4d5" class="">小班教學, 二人開課, 使用課後輔導場域<br/>遇到活動 or 學生請假, 順延課程</p></div><div style="display:contents" dir="auto"><hr id="217f1046-5fc6-8139-b5c7-ece706caca56"/></div><div style="display:contents" dir="auto"><h1 id="217f1046-5fc6-81b1-a726-fcf4698e1218" class="">教學內容</h1></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-81cd-b659-ea441f96935c" class=""><mark class="highlight-blue">第一堂課要做的事</mark></h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81c8-ac49-f2a169eed36f" class=""> 教學內容介紹            <br/> 申辦replit.com免費雲端帳號<br/> 申辦Notion.so免費雲端帳號<br/> Python 初始設定<br/> Hello World!<br/> Python繪圖三大套件介紹 : Numpy, Shapely, Matplotlib</p></div><div style="display:contents" dir="auto"><h2 id="218f1046-5fc6-8021-950d-cff4b5c5494e" class=""><mark class="highlight-blue">國中數學</mark></h2></div><div style="display:contents" dir="auto"><p id="218f1046-5fc6-8098-9a72-e393d6ac370f" class="">Check-if-N-is-multiple-of-11-v2<br/>Check-if-N-is-multiple-of-2-3-6<br/>Check-if-N-is-multiple-of-2-3-7<br/>Heron-Formula<br/>prime-factorization-1<br/>prime-factorization-2<br/>Sieve-of-Eratosthenes<br/>solve-GCD-v1<br/>solve-GCD-v2<br/>solve-GCD-v3-best<br/>solve-LCM-v1<br/>solve-LCM-v2</p></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-81ef-80ee-cec6208fe56e" class=""><mark class="highlight-blue"><strong>          如何繪製直線、圓、圓弧、正方形？</strong></mark></h2></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-810a-80a1-c76a99e571c5" class="image"><a href="jackie-diverse-elective-course/%E5%A6%82%E4%BD%95%E7%B9%AA%E8%A3%BD%E7%9B%B4%E7%B7%9A%E3%80%81%E5%9C%93%E3%80%81%E5%9C%93%E5%BC%A7%E3%80%81%E6%AD%A3%E6%96%B9%E5%BD%A2.png"><img style="width:651.960205078125px" src="jackie-diverse-elective-course/%E5%A6%82%E4%BD%95%E7%B9%AA%E8%A3%BD%E7%9B%B4%E7%B7%9A%E3%80%81%E5%9C%93%E3%80%81%E5%9C%93%E5%BC%A7%E3%80%81%E6%AD%A3%E6%96%B9%E5%BD%A2.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-812c-9d7f-e52341709de6" class=""><mark class="highlight-blue"><strong>          進擊的棋兵</strong></mark></h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8133-b766-fb92d9582ffd" class="">               學習 Python for 迴圈流程控制</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81cf-a6a8-cc9056914ffb" class="image" style="text-align:left"><a href="jackie-diverse-elective-course/%E9%80%B2%E6%93%8A%E7%9A%84%E6%A3%8B%E5%85%B5.png"><img style="width:527.9971313476562px" src="jackie-diverse-elective-course/%E9%80%B2%E6%93%8A%E7%9A%84%E6%A3%8B%E5%85%B5.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-815c-aa8c-fb372c93119c" class=""><mark class="highlight-blue">      半圓對對碰</mark></h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81ea-82c1-de55989cbd99" class="">         2D平面的座標判讀<br/>         Python 循環結構與選擇結構</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81aa-84b6-fae3b9aacc12" class="image" style="text-align:left"><a href="jackie-diverse-elective-course/default_(1).png"><img style="width:376.9886169433594px" src="jackie-diverse-elective-course/default_(1).png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-81dc-8da5-e17112964fd2" class=""><mark class="highlight-blue">      圓與內接正多邊形</mark></h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81bb-8725-da59bff68290" class="">         circle, degree, radian, 𝝅<br/>         cos(θ), sin(θ)<br/>         繪製正三角形<br/>         繪製正方形<br/>         繪製正五邊形<br/>         繪製正六邊形<br/>         2D平面的圖形變換<br/>         密鋪</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8116-b3d5-d57fa0a17086" class="image"><a href="jackie-diverse-elective-course/z1_unit_circle.png"><img style="width:645.9943237304688px" src="jackie-diverse-elective-course/z1_unit_circle.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-814c-8c5b-fa310d28e832" class="image"><a href="jackie-diverse-elective-course/1A-Triangle.png"><img style="width:710px" src="jackie-diverse-elective-course/1A-Triangle.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8101-b6bf-f80d59ac88f3" class="image"><a href="jackie-diverse-elective-course/1B-Triangle.png"><img style="width:710px" src="jackie-diverse-elective-course/1B-Triangle.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-813f-b256-ebb102067849" class="image"><a href="jackie-diverse-elective-course/2A-Square.png"><img style="width:710px" src="jackie-diverse-elective-course/2A-Square.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81bd-82b5-ec9611fc7cba" class="image"><a href="jackie-diverse-elective-course/2B-Square.png"><img style="width:710px" src="jackie-diverse-elective-course/2B-Square.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81cb-a132-db9cb5981bf3" class="image"><a href="jackie-diverse-elective-course/3A-Pentagon.png"><img style="width:710px" src="jackie-diverse-elective-course/3A-Pentagon.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8174-9132-f8c6f12191f6" class="image"><a href="jackie-diverse-elective-course/3B-Pentagon.png"><img style="width:710px" src="jackie-diverse-elective-course/3B-Pentagon.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81f1-a8de-f34fd122378b" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="217f1046-5fc6-8100-aed8-d891a7b56087"/></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-81b1-82c1-dad61f9998e6" class=""><mark class="highlight-blue">小泰姬瑪哈圖案 (baby Taj-Mahal pattern)</mark></h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81b9-8e4e-c3856386940e" class="">傳統幾何作圖法 vs 現代三角函數法<br/>.png, .pdf, .eps, .ai 圖檔創建與轉換<br/>雷射切割</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-814e-8f6c-f7a96c698be0" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81c2-801f-dbf2ef09f8f6" class="image"><a href="jackie-diverse-elective-course/%E5%B0%8F%E6%B3%B0%E5%A7%AC-2.jpg"><img style="width:709.96875px" src="jackie-diverse-elective-course/%E5%B0%8F%E6%B3%B0%E5%A7%AC-2.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81b0-aa91-e8a520c32308" class="">
+</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81dc-ac18-e3abe34e0f71" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81d1-b7d0-c66ae5b99b7d" class="image"><a href="jackie-diverse-elective-course/07-explain.png"><img style="width:709.984375px" src="jackie-diverse-elective-course/07-explain.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8111-84d6-f15c35b906f5" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8125-bcc5-c7b443c85fe2" class="image"><a href="jackie-diverse-elective-course/04.png"><img style="width:710px" src="jackie-diverse-elective-course/04.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8157-b702-f2e6fb5ee386" class="">
+</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81d8-a7f3-f92f64efc031" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-814d-9796-c4b50337cadf" class="image"><a href="jackie-diverse-elective-course/06.png"><img style="width:710px" src="jackie-diverse-elective-course/06.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8182-b39a-d466e2080c68" class="image"><a href="jackie-diverse-elective-course/%E5%B0%8F%E6%B3%B0%E5%A7%AC-3.png"><img style="width:710px" src="jackie-diverse-elective-course/%E5%B0%8F%E6%B3%B0%E5%A7%AC-3.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8152-85cb-ce21aebb060d" class="image"><a href="jackie-diverse-elective-course/IMG_20250418_052700_Burst01.jpg"><img style="width:710px" src="jackie-diverse-elective-course/IMG_20250418_052700_Burst01.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8152-a49e-c3d1db66a83b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81f9-8d5d-ddf555848c05" class="image"><a href="jackie-diverse-elective-course/IMG_20250426_211934.jpg"><img style="width:709.984375px" src="jackie-diverse-elective-course/IMG_20250426_211934.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8114-97e9-c8bcd472612a" class="">五歲小女孩的拼圖作品</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8144-b436-c218d0aa99d3" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81f7-824f-ef3dc4479c5e" class="image"><a href="jackie-diverse-elective-course/IMG_20250411_125518.jpg"><img style="width:709.984375px" src="jackie-diverse-elective-course/IMG_20250411_125518.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81ce-a201-f949fe8bc759" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="217f1046-5fc6-81da-a71e-dd168de409be"/></div><div style="display:contents" dir="auto"><h1 id="217f1046-5fc6-817f-9fc6-d1e2e946d026" class=""><mark class="highlight-blue">Pattern 2</mark></h1></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8173-a3e7-f06e28c9af8e" class="">2D平面的圖形變換, 密鋪</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-817f-b5be-fcede12c82f4" class="image"><a href="jackie-diverse-elective-course/S20-ZZ.jpg"><img style="width:709.984375px" src="jackie-diverse-elective-course/S20-ZZ.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8180-a57e-dbc767a34ddc" class="image"><a href="jackie-diverse-elective-course/S20-P2-01.png"><img style="width:565.9943237304688px" src="jackie-diverse-elective-course/S20-P2-01.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8171-89d1-fbf69d367014" class="image"><a href="jackie-diverse-elective-course/S20-P2-02.png"><img style="width:565.9943237304688px" src="jackie-diverse-elective-course/S20-P2-02.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81a0-a3e3-f5d1b048f143" class="image"><a href="jackie-diverse-elective-course/S20-P2-03.png"><img style="width:710px" src="jackie-diverse-elective-course/S20-P2-03.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8140-b037-d9d67d60c542" class="image"><a href="jackie-diverse-elective-course/S20-P2-04.png"><img style="width:710px" src="jackie-diverse-elective-course/S20-P2-04.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81f9-a8cc-cd5494f54230" class="image"><a href="jackie-diverse-elective-course/S20-P2-05.png"><img style="width:710px" src="jackie-diverse-elective-course/S20-P2-05.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="217f1046-5fc6-810a-af8f-e26962f13389"/></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-8177-a491-eeafaaaa4a27" class=""><mark class="highlight-blue">黃道十三星座 12面圓柱摺紙</mark></h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81e6-8e59-d3b9cf08bcd2" class="">天球赤道經度為360度，春分點在0度，秋分點在180度，春秋這兩個分點，亦是黃道線與天球赤道的交會點。將天球赤道均分為12等分，每一段代表2小時，(地球自轉一週需要24小時，24除以12得到2小時)，也就是一小時(1h)代表經度15度，在此例中，我們的視角是從天球外部往天球中心觀看，所以看到的星座圖示，會與從天球中心往外看的圖形不同(左右互換)。星座圖形國際天文學聯合會(IAU)沒有規範，本文採用與Google Earth 相同的圖式，(亦與SFA•BBC天文頻道•香港太空館相同)，本文亦繪出南/北回歸線，可見黃道線至赤緯+-23.5度卽回歸，其實南/北回歸線的原文沒有南北沒有回歸也沒有線的字詞，只有星座的名稱，北回歸線(Tropic of Cancer)表示在定義發表的年代，時人觀測到太陽運行到巨蟹座即回轉。</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-814d-bfb0-c1495d929625" class="image"><a href="jackie-diverse-elective-course/star-paper-A.jpg"><img style="width:710px" src="jackie-diverse-elective-course/star-paper-A.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8185-87ed-c0a1b154fb48" class="image"><a href="jackie-diverse-elective-course/star-paper-B.jpg"><img style="width:710px" src="jackie-diverse-elective-course/star-paper-B.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8184-a35a-c417686230ec" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8166-b98b-d47ba2f2a224" class="image"><a href="jackie-diverse-elective-course/Zodiac-Constellation-axis-on_(1).png"><img style="width:709.9625244140625px" src="jackie-diverse-elective-course/Zodiac-Constellation-axis-on_(1).png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8140-be54-fb1e1845b9b6" class="image"><a href="jackie-diverse-elective-course/%E9%BB%83%E9%81%93%E5%B8%B6%E6%98%9F%E5%BA%A7-dodecagon-B.png"><img style="width:709.9874877929688px" src="jackie-diverse-elective-course/%E9%BB%83%E9%81%93%E5%B8%B6%E6%98%9F%E5%BA%A7-dodecagon-B.png"/></a></figure></div><div style="display:contents" dir="auto"><hr id="217f1046-5fc6-81b2-8c9e-ff64665851e1"/></div><div style="display:contents" dir="auto"><h1 id="217f1046-5fc6-8168-ae7a-e9ba067cea5a" class=""><mark class="highlight-blue">河內塔(三階)</mark></h1></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81db-942d-e3fc58a6d185" class="image"><a href="jackie-diverse-elective-course/%E4%B8%89%E5%B1%A4%E6%B2%B3%E5%85%A7%E5%A1%94.gif"><img style="width:709.9750366210938px" src="jackie-diverse-elective-course/%E4%B8%89%E5%B1%A4%E6%B2%B3%E5%85%A7%E5%A1%94.gif"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8111-964a-d78571ed011f" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-81d0-af84-d5fb84df3e36" class=""><mark class="highlight-blue">程式碼貼附於下方</mark></h2></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-811e-880a-dca20e821f58" class="">In this example, when you click ▶ <mark class="highlight-red"><mark class="highlight-teal_background">Open on Replit.</mark></mark></p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81c9-9ff9-c222a669d2f4" class="">It bring you to URL : <mark class="highlight-blue"><a href="https://replit.com/@p3artschool/new-nix-hanoi-disk-layout">https://replit.com/@p3artschool/new-nix-hanoi-disk-layout</a></mark></p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81ee-b943-c0ac0f61011c" class="">You need a Replit account to remix this repl.</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-814e-8157-f695c178ed03" class="">你需要有Replit帳號來複製這個程式(及其運行環境)到你的程式工作場域。</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8140-9930-f8bb10311bd7" class="">[這意味著 —&gt;把老師分享的，存成自己的版本，可編輯或刪除]</p></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81db-9fda-fc7aa19b0ab3" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8185-a98e-cf1eb01586b1"><div class="source"><a href="https://replit.com/@p3artschool/new-nix-hanoi-disk-layout">https://replit.com/@p3artschool/new-nix-hanoi-disk-layout</a></div></figure></div><div style="display:contents" dir="auto"><h1 id="217f1046-5fc6-81d7-9762-e40eebe74b28" class="">         <mark class="highlight-blue"><strong>Fractal Square</strong></mark></h1></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81ca-b902-e16fea3e4f90" class="image" style="text-align:left"><a href="jackie-diverse-elective-course/0-Fractal-Square.gif"><img style="width:603.9772338867188px" src="jackie-diverse-elective-course/0-Fractal-Square.gif"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="217f1046-5fc6-81ba-b770-ede2bee52a14" class=""><mark class="highlight-blue">  畢達哥拉斯樹(五階)</mark></h2></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-8178-a172-c36a820b0a48" class="image"><a href="jackie-diverse-elective-course/n5-tree_(1).gif"><img style="width:710px" src="jackie-diverse-elective-course/n5-tree_(1).gif"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81a3-8821-d1357653d34a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-81cb-a9a8-c08a14cae561" class="image"><a href="jackie-diverse-elective-course/IMG_20250502_142245.jpg"><img style="width:709.984375px" src="jackie-diverse-elective-course/IMG_20250502_142245.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-81e9-8b5b-f858df99f9b4" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="217f1046-5fc6-815b-846a-c715d144a6eb" class="image"><a href="jackie-diverse-elective-course/IMG_20250502_142539.jpg"><img style="width:709.984375px" src="jackie-diverse-elective-course/IMG_20250502_142539.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="217f1046-5fc6-8177-bc27-c8f9de807dcd" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
