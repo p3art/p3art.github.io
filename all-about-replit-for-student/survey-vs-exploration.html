@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>survey-vs-exploration</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="311f1046-5fc6-81f0-b629-df9d9a296e54" class="page sans"><header><h1 class="page-title" dir="auto">survey-vs-exploration</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81e9-84ce-d1799b5427ee" class="">在研究與探索領域中，Survey 與 Exploration 這兩者代表了截然不同的思考模式：</p></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-815a-bba3-f8d280923d45" class="block-color-red_background">測量者是在為已知的社區繪製精確地圖，<br/>而探索者則是正在穿越叢林，試圖發現另一頭是否有一座城市。</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8168-bb91-f608e4aa6e4a" class=""><br/>以下是兩者在目的、方法與結果上的詳細分析。</p></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8181-a3e3-f93e3645cb2a"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8103-94b3-dedfaa909c64" class=""><strong>🧭 核心差異</strong></h2></div><div style="display:contents" dir="ltr"><table id="311f1046-5fc6-81c0-97d8-c1a84c149293" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81e9-9dbe-c5ffcf83885e"><td id="uv_G" class="">特性</td><td id="cn;W" class="">問卷調查/測量 (Surveying)</td><td id="SUq^" class="">探索 (Exploration)</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8139-9589-c783b671ea8b"><td id="uv_G" class=""><strong>主要目標</strong></td><td id="cn;W" class="">測量、量化並描述已知的領域或群體。</td><td id="SUq^" class="">發現新的現象、模式或領土。</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81d4-9a06-fcfc9d658d1b"><td id="uv_G" class=""><strong>心態</strong></td><td id="cn;W" class=""><strong>精確性。</strong>「確切的尺寸是多少？」</td><td id="SUq^" class=""><strong>發現。</strong>「那裡有什麼？」</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-813c-843b-f29b0e3e055a"><td id="uv_G" class=""><strong>結構</strong></td><td id="cn;W" class="">高度結構化，擁有預定義的變量。</td><td id="SUq^" class="">無結構或半結構化，具備靈活性。</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8139-8638-d1ad548c367b"><td id="uv_G" class=""><strong>問題類型</strong></td><td id="cn;W" class="">「多少？」、「多頻繁？」、「比例為何？」</td><td id="SUq^" class="">「為什麼？」、「如何發生？」、「如果…會怎樣？」</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8134-ad32-c18bd8e110f0"><td id="uv_G" class=""><strong>結果</strong></td><td id="cn;W" class="">數據、統計報表與精確地圖。</td><td id="SUq^" class="">假設、新理論與第一手初步資料。</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8162-be32-d32a5a195cdb"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-81c5-a31f-c47c1310ed7f" class=""><strong>🛠️ 何時使用哪種方法</strong></h2></div><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-8159-97a7-c0ae11d6d904" class=""><strong>1. 探索 (Exploration) — 「搜尋」階段</strong></h3></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8198-8a8d-fa5eeb1b4624" class="">當你處於「不知道自己不知道什麼」的階段時，應從這裡開始。重點在於收集定性（質化）見解並找出問題的邊界。</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8165-ae8f-ef29b6883732" class="bulleted-list"><li style="list-style-type:disc"><strong>科學領域：</strong> 在野外觀察新物種，且尚未建立特定假設。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-812c-8255-ec4e62814098" class="bulleted-list"><li style="list-style-type:disc"><strong>商業領域：</strong> 與客戶進行開放式訪談，挖掘你從未想過的「痛點」。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8192-8a6a-eee645ce8d3c" class="bulleted-list"><li style="list-style-type:disc"><strong>科技領域：</strong> 進行「探索性數據分析（EDA）」，觀察原始數據中是否存在奇特的模式。</li></ul></div><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-8144-a61e-f01f989f0a8e" class=""><strong>2. 問卷調查/測量 (Surveying) — 「衡量」階段</strong></h3></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81b0-b703-f4947550615b" class="">一旦你對研究對象有了清晰的輪廓，並需要硬數據來支持論點時，就進入此階段。</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81e0-89d8-d93b9e127a63" class="bulleted-list"><li style="list-style-type:disc"><strong>科學領域：</strong> 測量該新物種在特定森林中的確切族群密度。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81a7-aa61-e9017fa805b2" class="bulleted-list"><li style="list-style-type:disc"><strong>商業領域：</strong> 向 1,000 人發送選擇題問卷，確認他們更偏好「功能 A」還是「功能 B」。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81c8-b55c-f3c3ccaadddd" class="bulleted-list"><li style="list-style-type:disc"><strong>科技領域：</strong> 進行 A/B 測試，查看哪種按鈕顏色能精確提升 2% 的點擊率。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-816d-8d86-e5196d3e6906"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-81c5-a063-db1d5da85ce7" class=""><strong>💡 協同效應</strong></h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-810d-99e9-e6b407d5d359" class="">最成功的專案通常遵循一個<strong>循環</strong>：</p></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81e8-b875-dd77e523288b" class="numbered-list" start="1"><li><strong>探索：</strong> 你四處觀察並與人交談，發現人們討厭攜帶沉重的鑰匙。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81ee-b476-cd23642f721d" class="numbered-list" start="2"><li><strong>調查：</strong> 你向 500 人發送民調，詢問：「1 到 10 分，你有多想要一個智能鎖？」</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8179-a45b-d20e8a5797f0" class="numbered-list" start="3"><li><strong>行動：</strong> 你根據數據開發產品。</li></ol></div><div style="display:contents" dir="auto"><blockquote id="311f1046-5fc6-81b0-bf37-f860b048580d" class=""><strong>專業建議：</strong> 不要過早進行問卷調查。如果你在探索人們是否需要釘釘子（探索）之前，就先詢問「你有多喜歡這把特定的錘子？」（調查），你最終可能會得到一個數據完美、卻沒人想要的產品。</blockquote></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81a7-9022-cc890a9a5d86" class="block-color-red_background">
+</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81cb-ad91-d2ff27be8721" class="">「探究」（Inquiry/Exploration）是指主動探索、追究問題原因並進行研究的過程，旨在透過觀察、實驗、分析與邏輯推理，自行發現知識並解決問題，非僅是被動接收訊息。探究式學習強調由好奇心驅動，透過「發現問題」、「規劃研究」、「論證建模」、「表達分享」四個階段，培養獨立思考與實作能力。</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-813c-a366-d4fdb436a79e" class="">以下為「探究」的關鍵面向與內容：</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81d6-9ad1-dfc98aa09b0a" class="bulleted-list"><li style="list-style-type:disc"><strong>定義與本質：</strong> 探究是一種以學生為中心的學習方式，亦被稱為發現學習，強調親自操作、主動參與及主動發現新知識的過程。它與「發現」不同，探究是獲得知識的「手段」，而非最終的「啊哈」結果。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8181-b429-f48b2a0ffb55" class="bulleted-list"><li style="list-style-type:disc"><strong>探究與實作四階段 (108課綱)：</strong><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81d6-a8c1-eabc2f3f31d3" class="numbered-list" start="1"><li><strong>發現問題：</strong> 從生活中觀察現象，質疑並找尋需要研究的問題。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81d4-915a-d487ace418fc" class="numbered-list" start="2"><li><strong>規劃與研究：</strong> 針對問題設計實驗、蒐集數據、操作量度。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-812c-b2fd-ed469b67d1fa" class="numbered-list" start="3"><li><strong>論證與建模：</strong><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81f7-896c-c5ad9968e0ec" class="">分析數據、歸納原因，建立模型或科學解釋。</p></div></li></ol></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8116-bca2-fca0aaec58ba" class=""><strong>表達與分享：</strong> 將結果進行邏輯性的報告與交流。</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-816a-87b3-d704dcda87db" class="bulleted-list"><li style="list-style-type:circle"><strong>表達與分享：</strong> 將結果進行邏輯性的報告與交流。</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81f4-b615-c60b8d63f498" class=""><strong>關鍵能力：</strong> 科學探究技能包括觀察、量度、分類、推論、預測、假設、分析等。<strong>教學方法：</strong><br/>    ◦ <strong><a href="https://www.google.com/search?q=%E6%8C%87%E5%B0%8E%E5%BC%8F%E6%8E%A2%E7%A9%B6&amp;sca_esv=190a96a9d156750b&amp;sxsrf=ANbL-n6o1cQnT7oTgL4bSFZ_MWeVA9pBrg%3A1771017014159&amp;ei=NpOPaea6Cd_G1e8Pt5aG0Ag&amp;biw=1280&amp;bih=613&amp;ved=2ahUKEwipkbvRsNeSAxXanq8BHb2vPXkQgK4QegYIAQgCEAM&amp;uact=5&amp;oq=%E6%8E%A2%E7%A9%B6&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiBuaOoueptjIKEAAYgAQYQxiKBTIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjMPFD2CVidJHABeAGQAQCYAU6gAeABqgEBNLgBA8gBAPgBAvgBAZgCBaAC9wHCAgoQABiwAxjWBBhHwgIIEAAYgAQYogTCAgUQABjvBcICCBAAGKIEGIkFmAMAiAYBkAYKkgcBNaAHvQiyBwE0uAfwAcIHBTAuMy4yyAcQgAgA&amp;sclient=gws-wiz-serp&amp;safe=active&amp;ssui=on">指導式探究</a></strong><strong> (Guided Inquiry)：</strong> 教師引導問題並協助操作，適用於培養基礎能力。<br/>    ◦ <strong><a href="https://www.google.com/search?q=%E9%9D%9E%E6%8C%87%E5%B0%8E%E5%BC%8F%E6%8E%A2%E7%A9%B6&amp;sca_esv=190a96a9d156750b&amp;sxsrf=ANbL-n6o1cQnT7oTgL4bSFZ_MWeVA9pBrg%3A1771017014159&amp;ei=NpOPaea6Cd_G1e8Pt5aG0Ag&amp;biw=1280&amp;bih=613&amp;ved=2ahUKEwipkbvRsNeSAxXanq8BHb2vPXkQgK4QegYIAQgCEAU&amp;uact=5&amp;oq=%E6%8E%A2%E7%A9%B6&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiBuaOoueptjIKEAAYgAQYQxiKBTIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjMPFD2CVidJHABeAGQAQCYAU6gAeABqgEBNLgBA8gBAPgBAvgBAZgCBaAC9wHCAgoQABiwAxjWBBhHwgIIEAAYgAQYogTCAgUQABjvBcICCBAAGKIEGIkFmAMAiAYBkAYKkgcBNaAHvQiyBwE0uAfwAcIHBTAuMy4yyAcQgAgA&amp;sclient=gws-wiz-serp&amp;safe=active&amp;ssui=on">非指導式探究</a></strong><strong> (Unguided Inquiry)：</strong> 學生主動發掘問題，教師居於協助角色，適合成熟學習者。</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8108-9a0b-fbf5a7b7839e" class="bulleted-list"><li style="list-style-type:disc"><strong>關鍵能力：</strong> 科學探究技能包括觀察、量度、分類、推論、預測、假設、分析等。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8185-80ab-d89fbbd26b02" class="bulleted-list"><li style="list-style-type:disc"><strong>教學方法：</strong><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8135-b89d-cfb7f1b6d97e" class="bulleted-list"><li style="list-style-type:circle">◦ <strong><a href="https://www.google.com/search?q=%E6%8C%87%E5%B0%8E%E5%BC%8F%E6%8E%A2%E7%A9%B6&amp;sca_esv=190a96a9d156750b&amp;sxsrf=ANbL-n6o1cQnT7oTgL4bSFZ_MWeVA9pBrg%3A1771017014159&amp;ei=NpOPaea6Cd_G1e8Pt5aG0Ag&amp;biw=1280&amp;bih=613&amp;ved=2ahUKEwipkbvRsNeSAxXanq8BHb2vPXkQgK4QegYIAQgCEAM&amp;uact=5&amp;oq=%E6%8E%A2%E7%A9%B6&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiBuaOoueptjIKEAAYgAQYQxiKBTIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjMPFD2CVidJHABeAGQAQCYAU6gAeABqgEBNLgBA8gBAPgBAvgBAZgCBaAC9wHCAgoQABiwAxjWBBhHwgIIEAAYgAQYogTCAgUQABjvBcICCBAAGKIEGIkFmAMAiAYBkAYKkgcBNaAHvQiyBwE0uAfwAcIHBTAuMy4yyAcQgAgA&amp;sclient=gws-wiz-serp&amp;safe=active&amp;ssui=on">指導式探究</a></strong><strong> (Guided Inquiry)：</strong> 教師引導問題並協助操作，適用於培養基礎能力。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8160-a165-e8d9fe799de5" class="bulleted-list"><li style="list-style-type:circle">◦ <strong><a href="https://www.google.com/search?q=%E9%9D%9E%E6%8C%87%E5%B0%8E%E5%BC%8F%E6%8E%A2%E7%A9%B6&amp;sca_esv=190a96a9d156750b&amp;sxsrf=ANbL-n6o1cQnT7oTgL4bSFZ_MWeVA9pBrg%3A1771017014159&amp;ei=NpOPaea6Cd_G1e8Pt5aG0Ag&amp;biw=1280&amp;bih=613&amp;ved=2ahUKEwipkbvRsNeSAxXanq8BHb2vPXkQgK4QegYIAQgCEAU&amp;uact=5&amp;oq=%E6%8E%A2%E7%A9%B6&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiBuaOoueptjIKEAAYgAQYQxiKBTIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjMPFD2CVidJHABeAGQAQCYAU6gAeABqgEBNLgBA8gBAPgBAvgBAZgCBaAC9wHCAgoQABiwAxjWBBhHwgIIEAAYgAQYogTCAgUQABjvBcICCBAAGKIEGIkFmAMAiAYBkAYKkgcBNaAHvQiyBwE0uAfwAcIHBTAuMy4yyAcQgAgA&amp;sclient=gws-wiz-serp&amp;safe=active&amp;ssui=on">非指導式探究</a></strong><strong> (Unguided Inquiry)：</strong> 學生主動發掘問題，教師居於協助角色，適合成熟學習者。</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8176-b128-ea2ea0e807a1" class="">總結來說，探究的核心在於培養主動找尋答案的態度與能力，將知識連結至真實生活。</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>replit-apps-file-structure</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="311f1046-5fc6-8165-9872-f88f2d5264ee" class="page sans"><header><h1 class="page-title" dir="auto">replit-apps-file-structure</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-81d6-b13b-e169fc393d7d" class="">分析 Replit 應用程式結構 (Analysis Replit Apps structure)</h3></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-816e-b816-cc437b955998" class="">Replit 已經從一個簡單的瀏覽器 IDE 演變成一個集開發、部署與託管於一身的綜合性平台。<br/>要分析其架構，我們可以從開發環境（Repl）、檔案系統以及部署流程這三個維度來看。</p></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-811f-a68f-f0362290e81f"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-811d-9363-d3402ff224b6" class="">1. Repl 的核心組件</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-811c-bea3-da3682674b6d" class="">每一個 Replit 應用程式都封裝在一個 <strong>Repl</strong> 中，這本質上是一個輕量級的容器（基於 Linux/Docker 技術），它將你的程式碼與所需的執行環境捆綁在一起。</p></div><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-81fe-9748-c70e81db5f54" class="">檔案系統結構</h3></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8161-a2a3-f914131f6fad" class="bulleted-list"><li style="list-style-type:disc"><strong>原始碼：</strong> 你的主要邏輯檔案（例如 <code>main.py</code>、<code>index.js</code>）。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81aa-8c94-c626be26afb9" class="bulleted-list"><li style="list-style-type:disc"><strong>設定檔：</strong><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81f0-9b86-cc27b5ae9758" class="bulleted-list"><li style="list-style-type:circle"><code>.replit</code>：Repl 的「大腦」。它定義了應用程式如何運行、編譯及整體的行為模式。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8128-93f5-e353552f114d" class="bulleted-list"><li style="list-style-type:circle"><code>replit.nix</code>：使用 Nix 套件管理器來定義系統級別的依賴項目（例如特定版本的 Python、Node.js 或 C++ 函式庫）。</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-812d-954b-d3d778e52703" class="bulleted-list"><li style="list-style-type:disc"><strong>隱藏目錄：</strong><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8140-aa3e-caf11cf8c779" class="bulleted-list"><li style="list-style-type:circle"><code>.config</code>：儲存特定環境的設定。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-812b-81d8-da521a0d09d4" class="bulleted-list"><li style="list-style-type:circle"><code>.cache</code>：快取編譯檔案，加速後續啟動。</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-81cb-8b11-df0b88455784"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-816f-beb1-ea7f110ab9c3" class="">2. 設定檔深度解析</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81dc-b1c5-ce3d4a28dce1" class="">Replit 的強大之處在於其「設定即程式碼」（Configuration-as-code）的理念，這確保了開發環境在不同協作者之間的一致性。</p></div><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-813e-a929-f065021f06c6" class=""><code>.replit</code> 檔案</h3></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81ab-b9eb-f328d9460f94" class="">這個檔案明確指示 Replit 在你按下 <strong>Run</strong> 按鈕時該執行什麼操作。典型的結構如下：</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81ec-b640-f4484a806696" class="">Ini, TOML</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81ce-b3ec-ce1f4aae771b" class=""><code>run = &quot;python main.py&quot;<br/>entrypoint = &quot;main.py&quot;<br/>modules = [&quot;python-3.11&quot;]<br/><br/>[languages.python]<br/>pythonPath = &quot;python3&quot;</code></p></div><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-8140-96fc-fb240cc0d23d" class="">Nix (套件管理)</h3></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81af-b797-d5c20e3764f8" class="">Replit 利用 <strong>Nix</strong> 提供可複現的環境。你不需要手動安裝工具，只需在 <code>replit.nix</code> 中列出需求即可。</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8129-9090-f375e2bebec5" class="bulleted-list"><li style="list-style-type:disc"><strong>優勢：</strong> 支援混合語言開發（例如：一個需要特殊 C++ 函式庫支援的 Python 專案），無需手動處理複雜的環境安裝。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-81d2-8316-cbc0b2f241c1"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8190-9ccb-dddf3f060189" class="">3. 網路應用程式架構</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81cb-b3cf-e1f0cabcc26f" class="">如果你正在建立 Web 應用，Replit 會自動處理網路層：</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81a9-b026-cb187736770a" class="bulleted-list"><li style="list-style-type:disc"><strong>埠號映射 (Port Mapping)：</strong> Replit 會自動偵測特定埠號（通常是 <code>8080</code> 或 <code>3000</code>）的流量。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81d4-b014-ea7b22d8a192" class="bulleted-list"><li style="list-style-type:disc"><strong>WebView：</strong> 一旦偵測到伺服器啟動，Replit 會生成一個公開網址（例如 <code>app-name.username.repl.co</code>），並開啟一個內部瀏覽器視窗顯示介面。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81ff-a1ad-f6475c00fc8f" class="bulleted-list"><li style="list-style-type:disc"><strong>環境變數：</strong> 敏感資料（如 API 金鑰）儲存在 <strong>Secrets</strong> 標籤頁中，系統會將其注入為環境變數（例如 $process.env$ 或 <code>os.environ</code>）。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-813a-a17a-e87993cb826c"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-816a-aa1c-eea1ea2c5def" class="">4. 開發環境與部署環境的差異</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8195-87dd-e6197bb564d1" class="">Replit 將<strong>開發環境</strong>與<strong>部署環境</strong>做了明確的區隔：</p></div><div style="display:contents" dir="ltr"><table id="311f1046-5fc6-8110-8779-dda6f996d34d" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8165-8319-d493953968de"><td id="igfJ" class=""><strong>功能</strong></td><td id="vGH}" class=""><strong>開發環境 (Workspace)</strong></td><td id="BGWT" class=""><strong>部署環境 (Deployments)</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81ba-b875-c0ce5d683dd1"><td id="igfJ" class=""><strong>運行狀態</strong></td><td id="vGH}" class="">關閉分頁後會進入「休眠」。</td><td id="BGWT" class="">保持常駐（自動擴展、預留 VM 或靜態託管）。</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81ff-b71c-f24935d715fb"><td id="igfJ" class=""><strong>資源分配</strong></td><td id="vGH}" class="">共享 CPU/RAM。</td><td id="BGWT" class="">擁有專屬資源，效能更穩定。</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81c2-8d8c-e6da2366b4e7"><td id="igfJ" class=""><strong>主要用途</strong></td><td id="vGH}" class="">編寫程式碼、測試與除錯。</td><td id="BGWT" class="">服務真實用戶與正式流量。</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-814c-8070-f8ccc214d84d"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8184-913b-f83ee9d5b4e7" class="">5. 部署類型</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81e7-bf27-dc5f2508797d" class="">當你準備好上線時，Replit 提供三種主要路徑：</p></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8117-b0c8-eb28172c954d" class="numbered-list" start="1"><li><strong>Autoscale (自動擴展)：</strong> 適用於 Web 伺服器，根據流量自動調整資源。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81c6-8880-f7e5bf575176" class="numbered-list" start="2"><li><strong>Reserved VM (預留虛擬機)：</strong> 提供持續的運算能力，適合運行機器人（Bots）或重型任務。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81f9-b0a6-f1d5d6a834a8" class="numbered-list" start="3"><li><strong>Static (靜態網站)：</strong> 適用於不需後端邏輯的純 HTML/CSS/JS 網站。</li></ol></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81ea-8a08-e185bd90d6ea" class="block-color-red_background"> </p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81b6-8070-cf166eae5dae" class=""><strong>Replit Static (靜態網站)</strong> 是 Replit 提供的一種專門用於託管「純前端」專案的部署方式。與一般的 Python 或 Node.js 專案不同，靜態網站不需要伺服器後端程式碼（如 Express 或 Flask）來運行，而是直接向用戶發送 HTML、CSS 和 JavaScript 檔案。</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8113-bb8c-d53f157b1e18" class="">以下是關於 Replit 靜態網站的詳細解析：</p></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-813d-b5ee-c6faabfbec0b"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8136-ad44-de0a3ab5c90f" class="">1. 什麼是靜態網站？</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8106-9f5f-fb4f854cd637" class="">在 Replit 的語境下，靜態網站是指內容在伺服器端是不變的。瀏覽器請求網址時，伺服器只需簡單地「傳遞」檔案，而不進行任何資料庫查詢或動態頁面生成。</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8124-a53e-ea7899b02379" class="bulleted-list"><li style="list-style-type:disc"><strong>組成元素：</strong> HTML、CSS、JavaScript、圖片、字體、PDF 等檔案。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8123-bb9c-d5127565e51f" class="bulleted-list"><li style="list-style-type:disc"><strong>不包含：</strong> Python 腳本、Node.js 伺服器邏輯、PHP 或任何需要持續運行的後端進程。</li></ul></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-818a-bb67-dcafdbf83f86" class="">2. Replit Static 的核心優勢</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8147-9fb7-f74dba265097" class="">相對於標準的 Repl 容器，靜態部署有以下幾個特點：</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81f4-8867-ecf7b4cda444" class="bulleted-list"><li style="list-style-type:disc"><strong>永久在線（Always-on）：</strong> 靜態網站部署後會一直保持在線狀態。即使你關閉了編輯器，網站也不會像開發環境（Workspace）那樣進入「休眠」。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8161-b3c9-ef2b5c25171f" class="bulleted-list"><li style="list-style-type:disc"><strong>全球加速 (CDN)：</strong> Replit 會將你的靜態檔案分發到全球的 CDN 節點，這意味著無論用戶在哪裡，加載速度都會非常快。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81bb-a8a0-cd9ae4b2819f" class="bulleted-list"><li style="list-style-type:disc"><strong>自動 HTTPS：</strong> 部署後會自動獲得 SSL 憑證，確保網站連線安全。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8141-b71b-cfdd9bc61acb" class="bulleted-list"><li style="list-style-type:disc"><strong>成本效益：</strong> 由於不需要持續消耗 CPU 和記憶體來運行伺服器程式碼，這通常是最省資源的部署方式。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8166-9089-f3dc946104b6"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8148-950e-cb9b91dc129b" class="">3. 目錄結構與運作原理</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81d2-9d25-e27531af4aae" class="">當你將 Repl 設定為靜態部署時，Replit 的伺服器會尋找一個<strong>進入點</strong>（Entry Point）。</p></div><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-8125-ad1c-d2743730506f" class="">典型的檔案結構：</h3></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8149-ab21-e24e80c45f93" class="">Plaintext</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81c6-b14d-e7b06c17f35d" class=""><code>my-static-site/<br/>├── index.html   &lt;-- 預設的首頁<br/>├── style.css<br/>├── script.js<br/>└── images/<br/>    └── logo.png</code></p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-817b-904d-f990df156bd0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>index.html</strong></code><strong>：</strong> 這是網站的靈魂。當有人訪問你的 URL 時，Replit 會自動尋找並渲染這個檔案。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81f8-b5bf-dd0db7e20bc3" class="bulleted-list"><li style="list-style-type:disc"><strong>客戶端渲染：</strong> 所有的邏輯都在使用者的瀏覽器中執行。如果你需要呼叫 API（例如天氣 API 或 Firebase），必須透過 JavaScript 的 <code>fetch()</code> 在前端完成。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8118-9631-d40582b4d908"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-81a7-b1b8-ed278fe01283" class="">4. 如何部署為靜態網站？</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-816d-93b2-d5832747d970" class="">在 Replit 中，你可以透過以下步驟進行部署：</p></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8103-97b8-ef0159ff8605" class="numbered-list" start="1"><li>點擊右上角的 <strong>&quot;Deploy&quot;</strong> 按鈕。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8121-8b36-ecace7ed001a" class="numbered-list" start="2"><li>在部署類型中選擇 <strong>&quot;Static&quot;</strong>。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8186-9467-e14e759baa22" class="numbered-list" start="3"><li>設定你的<strong>構建指令 (Build Command)</strong>：<div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8185-ba6f-c971cd01f3c5" class="bulleted-list"><li style="list-style-type:disc">如果你只是純 HTML，可以留空。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-817d-b3c6-ee5eb99f0524" class="bulleted-list"><li style="list-style-type:disc">如果你使用 React, Vue 或 Vite，指令通常是 <code>npm run build</code>。</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-819f-b036-dd36f34f4195" class="numbered-list" start="4"><li>設定<strong>輸出目錄 (Publish Directory)</strong>：<div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8167-b2eb-e430cea67ec9" class="bulleted-list"><li style="list-style-type:disc">預設通常是 <code>.</code> (根目錄)。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-818d-a7c7-de194ba4b3f7" class="bulleted-list"><li style="list-style-type:disc">如果是框架打包後的結果，通常是 <code>dist</code> 或 <code>build</code>。</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-81e9-9d61-f4156277fdec"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-810b-8677-e1097581c84e" class="">5. 適用場景與限制</h2></div><div style="display:contents" dir="ltr"><table id="311f1046-5fc6-81b6-9ddb-d81ab646819d" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8193-89ca-fad79be9731d"><td id="`&gt;DA" class=""><strong>適用場景</strong></td><td id="kr{r" class=""><strong>不適用場景</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81a2-b852-dd3e65e97f1d"><td id="`&gt;DA" class="">個人簡歷、作品集 (Portfolio)</td><td id="kr{r" class="">電子商務平台 (需要後端處理訂單)</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81cc-8c2f-ded61c9ef10e"><td id="`&gt;DA" class="">登陸頁面 (Landing Pages)</td><td id="kr{r" class="">社交網路 (需要用戶登入與資料庫存取)</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8156-aab5-f6fe0a098f2b"><td id="`&gt;DA" class="">文件網站 (Documentation)</td><td id="kr{r" class="">需要隱藏 API Key 的應用 (前端會暴露金鑰)</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-81f4-bad3-c0a642611ea2"><td id="`&gt;DA" class="">單頁應用 (SPA, 如 React/Vue)</td><td id="kr{r" class="">即時聊天室 (需要 WebSocket 伺服器)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-813c-89c3-c368d8d3651f" class="block-color-red_background">   </p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-811a-b83b-ddc838013440" class="">VNC 就像是在瀏覽器裡開啟一個「遠端桌面」視窗，讓你能操作遠在 Replit 伺服器上的圖形介面。</p></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8182-9f16-d69e7599d7b7"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8162-8267-d8bf1d58a03d" class="">1. VNC 運作原理：從伺服器到 Chrome</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8164-bd55-d92c15ca3245" class="">VNC 的運作可以拆解為以下幾個技術層次：</p></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-819c-b803-c5e991eeaaa0" class="numbered-list" start="1"><li><strong>X11 Server (虛擬顯示器)：</strong> 在 Replit 的 Linux 容器中，Python 程式會尋找一個顯示設備。Replit 會啟動一個虛擬的 X11 伺服器（通常是 Xvfb），它在記憶體中建立一個虛擬螢幕，讓 Python 以為自己連接著一個顯示器。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-815a-91d3-d911d3952140" class="numbered-list" start="2"><li><strong>VNC Server：</strong> 一個 VNC 伺服器程序會持續監控這個虛擬螢幕的變化，並將畫面像素壓縮。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81d8-b46b-d459109a59b4" class="numbered-list" start="3"><li><strong>noVNC (網頁轉譯器)：</strong> 由於瀏覽器原生不支援 VNC 協議，Replit 使用了 <strong>noVNC</strong> 技術。它是一個 HTML5 VNC 客戶端，能將 VNC 數據流轉換為 <strong>WebSockets</strong> 訊號。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8143-a64c-d828e86c7292" class="numbered-list" start="4"><li><strong>Canvas 渲染：</strong> Chrome 瀏覽器接收到這些訊號後，利用 HTML5 的 <code>&lt;canvas&gt;</code> 標籤，將遠端桌面的畫面即時「畫」在你的螢幕上。</li></ol></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-81bc-8714-c330746023f8"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-819d-8930-d643f0816642" class="">2. 為什麼需要 VNC？</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81e1-b7bd-fa29c81c92f6" class="">與前面提到的「靜態圖片輸出」不同，VNC 主要解決以下問題：</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8123-94f3-e068e5185105" class="bulleted-list"><li style="list-style-type:disc"><strong>互動性：</strong> 你可以使用滑鼠點擊按鈕、拖曳視窗，或使用鍵盤控制遊戲角色。這些指令會透過 WebSockets 傳回 Replit 伺服器。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8136-8d73-d43b02f97e06" class="bulleted-list"><li style="list-style-type:disc"><strong>多視窗管理：</strong> 如果你的 Python 程式彈出了多個對話框，VNC 可以讓你像在 Windows/Mac 上一樣管理它們。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8100-bdb5-da8fa682068b" class="bulleted-list"><li style="list-style-type:disc"><strong>持續更新：</strong> 對於動畫或遊戲，VNC 提供每秒多次的畫面更新（FPS），而非單張圖片。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8180-af9b-c7cdf019b9cd"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-810e-9bb5-f00dc5e82d4f" class="">3. 如何在 Replit 中觸發 VNC？</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-814b-8682-de9992298452" class="">通常你不需要手動設定 VNC，當 Replit 偵測到以下情況時會自動開啟：</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8152-9967-e399c67fc4ae" class="bulleted-list"><li style="list-style-type:disc"><strong>特定套件：</strong> 當你導入 <code>pygame</code> 或 <code>tkinter</code> 時，Replit 的智慧偵測會自動配置圖形輸出。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8187-be71-cd143df8971f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>.replit</strong></code><strong> 設定：</strong> 在設定檔中，你可以明確指定圖形處理方式：Ini, TOML<div style="display:contents" dir="auto"><p id="311f1046-5fc6-8113-9f6a-e64462edf3cc" class=""><code># 強制啟動圖形介面模式<br/>[graphics]<br/>enabled = true</code></p></div></li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8103-bd96-f862f46728e3"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8112-a924-e3a976c4bd41" class="">4. VNC 模式的優缺點</h2></div><div style="display:contents" dir="ltr"><table id="311f1046-5fc6-81d8-b0ab-c788d771d1e5" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-816c-93e1-f9fbb6b6b6ed"><td id="{?vg" class=""><strong>優點</strong></td><td id="^bdw" class=""><strong>缺點</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-819c-84f1-d961c09713ab"><td id="{?vg" class=""><strong>全功能互動：</strong> 支援滑鼠、鍵盤輸入。</td><td id="^bdw" class=""><strong>延遲 (Latency)：</strong> 畫面資料需經由網路傳輸，動作可能會有微小延遲。</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8178-a99d-d2eaf378e3c9"><td id="{?vg" class=""><strong>相容性強：</strong> 幾乎所有傳統 GUI 程式都能執行。</td><td id="^bdw" class=""><strong>資源消耗：</strong> 運行虛擬桌面與 VNC Server 會佔用額外的記憶體與 CPU。</td></tr></div><div style="display:contents" dir="ltr"><tr id="311f1046-5fc6-8167-b12d-c33bdff2b35c"><td id="{?vg" class=""><strong>無需修改程式碼：</strong> 原本在本地跑的程式碼通常可直接運行。</td><td id="^bdw" class=""><strong>畫質壓縮：</strong> 為了傳輸速度，有時畫面會出現壓縮痕跡或模糊。</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8191-9018-e0f078390f99"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-81e4-9ca6-cb26bb471fd3" class="">5. 故障排除：如果 VNC 畫面全黑？</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81d5-b612-d0dec61889af" class="">如果你的 Python 程式正在運行，但 VNC 視窗沒有出現畫面，通常有兩個原因：</p></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81b2-819c-ed4488b28f93" class="numbered-list" start="1"><li><strong>DISPLAY 變數：</strong> Python 找不到虛擬顯示器。確保環境變數 <code>DISPLAY</code> 已正確設定（Replit 通常會自動處理，但在某些自定義 Nix 環境中需手動檢查）。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8158-b90e-f21ca0121121" class="numbered-list" start="2"><li><strong>依賴缺失：</strong> 檢查 <code>replit.nix</code> 是否包含了 <code>pkgs.xorg.libX11</code> 或 <code>pkgs.libGL</code>。</li></ol></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-817c-a4e1-c685c428e993" class="block-color-red_background">
+</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-815d-a9b6-dd80601dc8e2" class="">當你在 Replit 中使用 Matplotlib 畫一個正方形並儲存為 <code>.png</code> 時，後端經歷了一個從「數學座標」到「二進位圖檔」，再到「檔案系統監測」的完整流程。</p></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8166-b419-dd0c5d9a6825" class="">以下是幕後發生的步驟拆解：</p></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-812e-bc44-edd8bd4ddc8e"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-815e-9486-c43ae6acc3c9" class="">1. 建立圖形對象 (內存階段)</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8132-9534-ffd37310e19a" class="">當你執行 <code>plt.plot()</code> 時，Python 並沒有立刻畫圖，而是在記憶體中建立了一個資料結構。</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8149-8bbc-ffb2a9b7dc8b" class="bulleted-list"><li style="list-style-type:disc"><strong>座標計算：</strong> Matplotlib 會根據你提供的點（例如 <code>(0,0), (1,0), (1,1), (0,1), (0,0)</code>）計算出正方形的頂點。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-81c8-987d-c64095880708" class="bulleted-list"><li style="list-style-type:disc"><strong>渲染引擎 (Backend)：</strong> 關鍵在於 <strong>Backend</strong>。在 Replit 環境中，Matplotlib 通常預設使用 <strong>Agg (Anti-Grain Geometry)</strong> 引擎。這是一個「非交互式」的後端，專門負責將向量繪圖指令轉換為像素資料（Rasterization），而不需要顯示器。</li></ul></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-81f8-babf-df35f83edd99" class="">2. 轉譯為像素並儲存 (I/O 階段)</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-8168-867b-e96cf4f86a36" class="">當你執行 <code>plt.savefig(&#x27;square.png&#x27;)</code> 時：</p></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-818d-9960-d2a7dcd57e27" class="numbered-list" start="1"><li><strong>渲染：</strong> Agg 引擎會將記憶體中的正方形線條，根據你設定的 DPI（每英吋像素）轉換成 RGBA 像素矩陣。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-81ad-b60e-e9b0a36fbc09" class="numbered-list" start="2"><li><strong>壓縮：</strong> 這些像素資料會經過 <strong>zlib</strong> 壓縮算法，封裝進符合 PNG 標準的「塊」(Chunks) 中（例如 IHDR, IDAT, IEND）。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8194-858b-cd6dd03787f8" class="numbered-list" start="3"><li><strong>寫入磁碟：</strong> Python 透過 Linux 系統呼叫（System Call），將這些二進位數據寫入 Replit 容器的虛擬磁碟空間。</li></ol></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-81e8-890d-cb1f3a902d6a"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-81ef-87ff-fcd91df0545c" class="">3. Replit 的即時監測 (IDE 階段)</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-818c-944c-df98cc987fab" class="">這是 Replit 最聰明的地方，讓你在 Chrome 瀏覽器能看到結果：</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8186-bcb7-d71f63cc7c83" class="bulleted-list"><li style="list-style-type:disc"><strong>檔案系統事件 (Inotify)：</strong> Replit 的後端服務一直在監控你的專案目錄。一旦 <code>square.png</code> 被建立或更新，作業系統會發出一個 <code>inotify</code> 事件。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-813a-854d-efd0dcb1d550" class="bulleted-list"><li style="list-style-type:disc"><strong>同步至瀏覽器：</strong> Replit 偵測到新檔案後，會透過 <strong>WebSockets</strong> 通知你的 Chrome 前端。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8119-bcbd-c3cd04bd0137" class="bulleted-list"><li style="list-style-type:disc"><strong>檔案瀏覽器更新：</strong> 你的左側檔案列表會出現 <code>square.png</code>。如果你點擊它，Replit 的圖片查看器會向伺服器請求該檔案內容，並在瀏覽器中顯示出來。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-8129-b8ed-ebc6d57aec89"/></div><div style="display:contents" dir="auto"><h2 id="311f1046-5fc6-8138-91d1-f41a7c3900b5" class="">4. 程式碼行為與 Replit 預覽</h2></div><div style="display:contents" dir="auto"><p id="311f1046-5fc6-81b4-82cd-e4b000f15def" class="">有趣的是，如果你<strong>沒有</strong>寫 <code>plt.savefig()</code> 而是只寫 <code>plt.show()</code>：</p></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-8164-b755-fffe56ab75b5" class="bulleted-list"><li style="list-style-type:disc"><strong>攔截行為：</strong> Replit 經常會配置一個名為 <code>replit-python-canvas</code> 的特殊環境。它會攔截 <code>plt.show()</code>，偷偷將圖形存成一個臨時的圖片檔（例如在 <code>/tmp</code> 目錄下）。</li></ul></div><div style="display:contents" dir="auto"><ul id="311f1046-5fc6-813d-8e0f-c7441ba37e5f" class="bulleted-list"><li style="list-style-type:disc"><strong>自動彈出：</strong> 隨後它會命令 Chrome 前端的 <strong>WebView</strong> 分頁打開這個臨時圖片，這就是為什麼你沒存檔卻能看到圖表的原因。</li></ul></div><div style="display:contents" dir="auto"><hr id="311f1046-5fc6-81b9-b02c-fe73ce0c89f3"/></div><div style="display:contents" dir="auto"><h3 id="311f1046-5fc6-8196-8cea-f6d0de53d498" class="">總結流程</h3></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8190-ad7e-c065c52dcca4" class="numbered-list" start="1"><li><strong>Python (Matplotlib/Agg):</strong> 將數學正方形轉為像素。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-8165-862e-eb489005d2d8" class="numbered-list" start="2"><li><strong>Linux FS:</strong> 將像素數據儲存為 <code>square.png</code>。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-819b-b867-e8f44ddd72d6" class="numbered-list" start="3"><li><strong>Replit Backend:</strong> 偵測到檔案變更。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="311f1046-5fc6-813c-a6e5-c6c2bfbb3478" class="numbered-list" start="4"><li><strong>Chrome (WebSockets):</strong> 收到通知並更新檔案清單，讓你隨時可以點開查看。</li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
